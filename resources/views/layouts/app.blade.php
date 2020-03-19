@@ -20,13 +20,14 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>موقع عقارات
-{{--        {{ config('app.name', 'موقع عقارات') }}--}}
+{{-- {{ config('app.name', 'موقع عقارات') }} --}}
     |
     @yield('title')</title>
+
     @yield('header')
 
 </head>
-<body style="direction: rtl">
+<body style="direction:rtl;">
 <div class="header">
     <div class="container"> <a class="navbar-brand" href="{{url('/')}}"><i class="fa fa-paper-plane"></i> ONE</a>
         <div class="menu pull-left"> <a class="toggleMenu" href="#"><img src="{{ Request::root() }}/website/images/nav_icon.png" alt="" /> </a>
