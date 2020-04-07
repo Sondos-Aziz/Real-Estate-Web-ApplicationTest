@@ -15,11 +15,14 @@
     <link rel="stylesheet" href="{{ Request::root() }}/website/css/font-awesome.min.css">
     <script src="{{ Request::root() }}/website/js/jquery.min.js"></script>
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+    {{--<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>--}}
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>موقع عقارات
+    <title>
+        {{ getSetting() }}
+{{--        موقع عقارات--}}
+
 {{-- {{ config('app.name', 'موقع عقارات') }} --}}
     |
     @yield('title')</title>
@@ -33,6 +36,7 @@
         <div class="menu pull-left"> <a class="toggleMenu" href="#"><img src="{{ Request::root() }}/website/images/nav_icon.png" alt="" /> </a>
             <ul class="nav" id="nav">
                 <li class="current"><a href="{{url('/home')}}">الرئيسيه</a></li>
+                <li class=""><a href="{{url('/ShowAllBullding')}}">كل العقارات</a></li>
                 <li><a href="about.html">من نحن</a></li>
                 <li><a href="services.html">خدماتنا</a></li>
                 <li><a href="contact.html">اتصل بنا</a></li>
@@ -78,7 +82,9 @@
         </main>
 <div class="footer">
     <div class="footer_bottom">
-        <div class="follow-us"> <a class="fa fa-facebook social-icon" href="#"></a> <a class="fa fa-twitter social-icon" href="#"></a> <a class="fa fa-linkedin social-icon" href="#"></a> <a class="fa fa-google-plus social-icon" href="#"></a> </div>
+        <div class="follow-us"> <a class="fa fa-facebook social-icon" href="{{getSetting('facebook')}}"></a>
+            <a class="fa fa-twitter social-icon" href="{{getSetting('twitter')}}"></a>
+            <a class="fa fa-youtube social-icon"href="{{getSetting('youtube')}}"></a> </div>
         <div class="copy">
             <p>Copyright &copy; 2015 Company Name. Design by <a href="http://www.templategarden.com" rel="nofollow">TemplateGarden</a></p>
         </div>

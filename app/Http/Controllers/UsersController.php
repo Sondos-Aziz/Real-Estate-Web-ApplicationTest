@@ -43,7 +43,7 @@ class UsersController extends Controller
             'name'=>'required',
             'email'=>'required|email',
             'password'=>['required', 'string', 'min:5'],
-            
+
         ]);
 
         $users = new User();
@@ -53,13 +53,7 @@ class UsersController extends Controller
             'password' => bcrypt($request->password)
 
             ]);
-
-               
             return redirect('/Adminpanel/users')->withFlashMessage('تمت اضافة العضو بنجاح');
-
-
-
-
     }
 
     /**
@@ -98,8 +92,7 @@ class UsersController extends Controller
         $user= User::find($id);
         $user->fill($request->all())->save();
         // return redirect::back()->withFlashMessage('تم تعديل العضو بنجاح');
-        return redirect('/Adminpanel/users')->withFlashMessage('تمت اضافة العضو بنجاح');
-
+        return redirect('/Adminpanel/users')->withFlashMessage('تمت تعديل العضو بنجاح');
 
     }
 
@@ -113,9 +106,9 @@ class UsersController extends Controller
     {
         $user= User::find($id);
         $user->delete();
-        
-        return redirect()->route('users.index')->withFlashMessage('user  deleted successfully' );
-     
+
+        return redirect()->route('users.index')->withFlashMessage('تم حذف العضو بنجاح' );
+
 
     }
 
@@ -133,7 +126,7 @@ class UsersController extends Controller
     //             return $model->admin == 0 ? '<span class="badge badge-info">' . 'عضو' . '</span>' : '<span class="badge badge-warning">' . 'مدير الموقع' . '</span>';
     //         })
 
-            
+
     //         ->editColumn('control', function ($model) {
     //             $all = '<a href="' . url('/Adminpanel/users/' . $model->id . '/edit') . '" class="btn btn-info btn-circle"><i class="fa fa-edit"></i></a> ';
     //             if($model->id != 1){

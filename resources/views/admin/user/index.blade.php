@@ -1,13 +1,13 @@
 @extends('admin.layout.layout')
 
 @section('title')
-التحكم في الأعضاء 
+التحكم في الأعضاء
 
 @endsection
 
 @section('header')
 
- {{!! Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css') !!}}
+ {!! Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css') !!}
 
 @endsection
 
@@ -27,7 +27,7 @@
               <li class="breadcrumb-item active"><a href="{{ url('/Adminpanel/users')}}">التحكم في الأعضاء</a></li>
             </ol>
           </div>
-      
+        </div>
       </div><!-- /.container-fluid -->
     </section>
 
@@ -36,7 +36,7 @@
       <div class="row">
         <div class="col-12">
            <div class="card">
-           
+
             <!-- /.card-header -->
             <div class="card-body">
               <table id="table" class="table table-bordered table-striped">
@@ -50,7 +50,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($user as $alluser)  
+                    @foreach($user as $alluser)
                          <tr>
                             <td>{{$alluser->id}}</td>
                             <td>{{$alluser->name}}</td>
@@ -104,8 +104,8 @@
 
 @section('footer')
 
-{{!! Html::script('admin/plugins/datatables/jquery.dataTables.js') !!}}
-{{!! Html::script('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js') !!}}
+{!! Html::script('admin/plugins/datatables/jquery.dataTables.min.js') !!}
+{!! Html::script('admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') !!}
 
 
 

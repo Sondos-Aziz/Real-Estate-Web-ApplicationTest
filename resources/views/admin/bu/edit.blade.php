@@ -1,7 +1,9 @@
 @extends('admin.layout.layout')
 
 @section('title')
-اضافة عضو
+
+تعديل العقار
+{{$bu->bu_name}}
 
 @endsection
 
@@ -16,13 +18,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>اضافة عضو </h1>
+            <h1>تعديل العقار  </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/Adminpanel')}}">الرئيسية</a></li>
-              <li class="breadcrumb-item "><a href="{{ url('/Adminpanel/users')}}">التحكم في الأعضاء</a></li>
-              <li class="breadcrumb-item active"><a href="{{ url('/Adminpanel/users/create')}}">اضافة عضو </a></li>
+              <li class="breadcrumb-item "><a href="{{ url('/Adminpanel/bu')}}">التحكم في الأعضاء</a></li>
+              <li class="breadcrumb-item active"><a href="{{ url('/Adminpanel/bu/'.$bu->id.'edit')}}">تعديل العقار {{$bu->bu_name}} </a></li>
             </ol>
         </div>
       </div><!-- /.container-fluid -->
@@ -34,22 +36,19 @@
         <div class="col-12">
            <div class="card">
             <div class="card-header">
-              <h3 class="card-title">اضافة عضو</h3>
+              <h3 class="card-title">تعديل العقار {{$bu->bu_name}}</h3>
               </div>
               <div class="card-body">
-              <form method="POST" action="{{ url('/Adminpanel/users') }}" >
-              @include('admin.user.form')
-              </form>
+
+                     {!! Form::model($bu ,['route' => ['bu.update',$bu->id ], 'method'=>'PATCH' ]  )  !!}
+
+                     @include('admin.bu.form')
+                     {!! Form::close() !!}
             </div>
             </div>
            </div>
           </div>
 </section>
-
-
-
-
-
 
 @endsection
 

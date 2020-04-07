@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>لوحه تحكم الموقع
-
+         {{ getSetting() }}
     |
 
         @yield('title')</title>
@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="{{ Request::root() }}/admin/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {!! Html::style('cus/sweetalert.css') !!}
 
     @yield('header')
 
@@ -38,14 +39,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-
-
-
-
-
-
-
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -173,7 +166,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{url('/Adminpanel')}}" class="brand-link">
-      
+
         <span class="brand-text font-weight-light "> لوحة تحكم الموقع </span>
     </a>
 
@@ -205,6 +198,7 @@
 
 
 <div class="content-wrapper">
+{{--    @include('/admin/layout/message')--}}
     @yield('content')
 
 </div>
@@ -258,6 +252,18 @@
 <script src="{{ Request::root() }}/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ Request::root() }}/admin/dist/js/demo.js"></script>
+
+{!! Html::script('cus/sweetalert.min.js') !!}
+@include('/admin/layout/f_message')
+
+
+{{--<script>--}}
+{{--    $(function () {--}}
+{{--        setTimeout(function () {--}}
+{{--            $("#mes").hide('blind', {}, 500)--}}
+{{--        }, 5000);--}}
+{{--    });--}}
+{{--</script>--}}
 
 @yield('footer')
 
